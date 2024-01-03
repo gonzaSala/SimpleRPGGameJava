@@ -24,7 +24,7 @@ public class Monstruo extends Entidad {
 		etNombre = new JLabel(nombre);
 		etNombre.setFont(new Font("Roboto", Font.BOLD, 20));
 
-		String rutaImg = "C:\\\\Users\\\\Gonzalo\\\\eclipse-workspace\\\\Portfolio\\\\src\\\\MiniRPG\\\\assets\\\\image\\\\"
+		String rutaImg = "C:\\\\Users\\\\Gonzalo\\\\eclipse-workspace\\\\MiniJuego\\\\src\\\\MiniRPG\\\\assets\\\\image\\\\"
 				+ nombre.toLowerCase() + ".png";
 		imagen = new JLabel();
 		ImageIcon icono = new ImageIcon(rutaImg);

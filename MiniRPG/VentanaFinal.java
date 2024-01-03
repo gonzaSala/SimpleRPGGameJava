@@ -36,8 +36,8 @@ public class VentanaFinal {
 		this.pj= pj;
 
 		
-		if(condicion == VICTORIA) rutaImg = new ImageIcon("C:\\Users\\Gonzalo\\eclipse-workspace\\Portfolio\\src\\MiniRPG\\assets\\image\\victoria.jpg");
-		else rutaImg = new ImageIcon ("C:\\\\Users\\\\Gonzalo\\\\eclipse-workspace\\\\Portfolio\\\\src\\\\MiniRPG\\\\assets\\\\image\\\\derrota.jpg");
+		if(condicion == VICTORIA) rutaImg = new ImageIcon("C:\\Users\\Gonzalo\\eclipse-workspace\\MiniJuego\\src\\MiniRPG\\assets\\image\\victoria.jpg");
+		else rutaImg = new ImageIcon ("C:\\\\Users\\\\Gonzalo\\\\eclipse-workspace\\\\MiniJuego\\\\src\\\\MiniRPG\\\\assets\\\\image\\\\derrota.jpg");
 		
 		 Image imagenEscalada = rutaImg.getImage().getScaledInstance(600, 400, Image.SCALE_SMOOTH);
 		   rutaImg = new ImageIcon(imagenEscalada);
@@ -76,6 +76,11 @@ public class VentanaFinal {
 		panelPrincipal.add(imagen, BorderLayout.NORTH);
 		panelPrincipal.add(areaTxt, BorderLayout.CENTER);
 		panelPrincipal.add(btnSalir, BorderLayout.SOUTH);
+		
+		areaTxt.setEditable(false);
+		areaTxt.setBackground(null);
+		
+		btnSalir.addActionListener(e-> System.exit(0));
 		
 		marco.add(panelPrincipal);
 		marco.setSize(600,500);

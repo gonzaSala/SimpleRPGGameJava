@@ -142,7 +142,8 @@ public class Exploracion {
 
 	private void derrota() {
 		
-		
+		VentanaFinal v = new VentanaFinal (VentanaFinal.DERROTA, pj);
+		v.abrir();
 		
 	}
 
@@ -160,7 +161,17 @@ public class Exploracion {
 		vp.getEtNivel().setText(" Lvl: " + pj.getNivel());
 		vp.getEtAtributos().setText("Atq: " + pj.getAtaque() + " | Def:  " + pj.getDefensa() + "  Vida: ");
 		
-		pj.setOro(enemigo.getPremioOro());
+		pj.setOro(pj.getOro()+ enemigo.getPremioOro());
 		vp.getEtOro().setText("Oro: " + pj.getOro());
 	}
+
+	public static int getNumExploracion() {
+		return numExploracion;
+	}
+
+	public static void setNumExploracion(int numExploracion) {
+		Exploracion.numExploracion = numExploracion;
+	}
+	
+	
 }
