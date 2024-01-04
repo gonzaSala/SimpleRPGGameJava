@@ -22,6 +22,9 @@ public class Exploracion {
 	private static int numExploracion = 0;
 	
 	private VentanaPrincipal vp;
+	
+	private boolean esJefe = false;
+	
 
 	public Exploracion(VentanaPrincipal vp) {
 		
@@ -62,6 +65,7 @@ public class Exploracion {
 		
 		enemigo = Monstruo.generaMonstruo(numAlea);
 		
+		if(enemigo.getNombre().equals("Jefe")) esJefe=true;
 		
 		
 	}
@@ -80,10 +84,13 @@ public class Exploracion {
 
 		btnAtacar.addActionListener(e->atacar());
 		
-		btnHuir.addActionListener(e->marco.dispose());
+		btnHuir.addActionListener(e->{
+			numExploracion++;
+			marco.dispose();});
 		
 		panelInferior.add(btnAtacar);
 		panelInferior.add(new JLabel ("           "));
+		if(esJefe) btnHuir.setEnabled(false);
 		panelInferior.add(btnHuir);
 		
 		panelPrincipal.add(panelSuperior, BorderLayout.NORTH);
@@ -94,6 +101,8 @@ public class Exploracion {
 		marco.setSize(680,500);
 		marco.setLocationRelativeTo(null);
 		marco.setModal(true);
+		marco.setUndecorated(true);
+
 		marco.setVisible(true);
 		
 	}
@@ -163,6 +172,11 @@ public class Exploracion {
 		
 		pj.setOro(pj.getOro()+ enemigo.getPremioOro());
 		vp.getEtOro().setText("Oro: " + pj.getOro());
+		
+		if(esJefe) {
+			VentanaFinal v = new VentanaFinal (VentanaFinal.VICTORIA, pj);
+			v.abrir();
+		}
 	}
 
 	public static int getNumExploracion() {

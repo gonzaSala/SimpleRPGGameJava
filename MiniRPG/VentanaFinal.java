@@ -52,6 +52,8 @@ public class VentanaFinal {
 		prepararMsj();
 		montarEscena();
 		marco.setVisible(true);
+		marco.setUndecorated(true);
+
 	}
 
 	private void prepararMsj() {
@@ -83,7 +85,7 @@ public class VentanaFinal {
 		btnSalir.addActionListener(e-> System.exit(0));
 		
 		marco.add(panelPrincipal);
-		marco.setSize(600,500);
+		marco.setSize(700,600);
 		marco.setLocationRelativeTo(null);
 		marco.setModal(true);
 	}

@@ -5,20 +5,20 @@ import javax.swing.*;
 import marcoPanelPersonalizado.framePer;
 
 public class VentanaPrincipal {
-	private framePer marco;
+	private JDialog marco;
 	private JPanel panelPrincipal, panelSuperior, panelInferior;
 
 	private JLabel etNombre, etOro, etNivel, etExp, etAtributos;
 	private JLabel etImagen;
 
-	private JButton btnExplorar, btnTienda;
+	private JButton btnExplorar, btnTienda, btnSalir;
 
 	private Personaje pj;
 
 	public VentanaPrincipal(Personaje pj) {
 		this.pj = pj;
 
-		marco = new framePer(600, 500, "miniRPG", true);
+		marco = new JDialog();
 
 		panelPrincipal = new JPanel(new BorderLayout());
 		panelSuperior = new JPanel();
@@ -34,14 +34,22 @@ public class VentanaPrincipal {
 
 		btnExplorar = new JButton("Explorar");
 		btnTienda = new JButton ("Tienda");
+		btnSalir =new JButton ("Salir");
 	}
 
 	public void ComenzarJuego() {
 		mostrarEscena();
+		marco.setUndecorated(true);
 		marco.setVisible(true);
+		marco.setLocationRelativeTo(null);
+		marco.setModal(true);
 	}
 
 	private void mostrarEscena() {
+		
+		
+		marco.setSize(600,500);
+		
 
 		modificarFuentes();
 
@@ -68,6 +76,8 @@ public class VentanaPrincipal {
 		panelInferior.add(btnExplorar);
 		btnTienda.addActionListener(e-> abrirTienda() );
 		panelInferior.add(btnTienda);
+		btnSalir.addActionListener(e -> marco.dispose());
+		panelInferior.add(btnSalir);
 
 		panelPrincipal.add(panelSuperior, BorderLayout.NORTH);
 		panelPrincipal.add(panelInferior, BorderLayout.SOUTH);

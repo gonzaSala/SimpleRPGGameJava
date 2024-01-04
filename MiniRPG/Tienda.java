@@ -48,9 +48,9 @@ public class Tienda {
 		imgMapa = new JLabel(new ImageIcon(
 				"C:\\Users\\Gonzalo\\eclipse-workspace\\MiniJuego\\src\\MiniRPG\\assets\\image\\map.png"));
 
-		desEspada = new JLabel("Espada - 100 oro");
-		desEscudo = new JLabel("Escudo - 100 oro");
-		desPocion = new JLabel("Pocion - 50 oro");
+		desEspada = new JLabel("Espada - 200 oro");
+		desEscudo = new JLabel("Escudo - 200 oro");
+		desPocion = new JLabel("Pocion - 100 oro");
 		desMapa = new JLabel("Mapa - 10 oro");
 
 		btnEspada = new JButton("Comprar");
@@ -65,6 +65,8 @@ public class Tienda {
 	public void abrirTienda() {
 
 		montarInterfaz();
+		marco.setUndecorated(true);
+
 		marco.setVisible(true);
 
 
@@ -118,10 +120,10 @@ public class Tienda {
 		switch (nombre) {
 			
 		case "espada": 
-			if(pj.getOro()>= 100) {
-				pj.setAtaque(pj.getAtaque()+3);
+			if(pj.getOro()>= 200) {
+				pj.setAtaque(pj.getAtaque()+5);
 				vp.getEtAtributos().setText("Atq: " + pj.getAtaque() + " | Def:  " + pj.getDefensa() + "  Vida: ");
-				pj.setOro(pj.getOro()-100);
+				pj.setOro(pj.getOro()-200);
 				vp.getEtOro().setText("Oro: " + pj.getOro());
 				btn.setEnabled(false);
 				agoEspada = true;
@@ -129,10 +131,10 @@ public class Tienda {
 			break;
 			
 		case "escudo": 
-			if(pj.getOro()>= 100) {
-				pj.setDefensa(pj.getDefensa()+1);
+			if(pj.getOro()>= 200) {
+				pj.setDefensa(pj.getDefensa()+3);
 				vp.getEtAtributos().setText("Atq: " + pj.getAtaque() + " | Def:  " + pj.getDefensa() + "  Vida: ");
-				pj.setOro(pj.getOro()-100);
+				pj.setOro(pj.getOro()-200);
 				vp.getEtOro().setText("Oro: " + pj.getOro());
 				btn.setEnabled(false);
 				agoEscudo = true;
@@ -140,13 +142,12 @@ public class Tienda {
 			}
 			break;
 		case "pocion": 
-			if(pj.getOro()>= 50) {
+			if(pj.getOro()>= 100) {
 				pj.setVidaActual((int)pj.getVidaMax());
 				pj.establecerVida(pj.getVidaActual());
-				pj.setOro(pj.getOro()-50);
+				pj.setOro(pj.getOro()-100);
 				vp.getEtOro().setText("Oro: " + pj.getOro());
-				btn.setEnabled(false);
-				agoPocion = true;
+				
 
 			}
 			break;
